@@ -1,5 +1,5 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from typing import List, Dict
+from typing import Dict
 import whisper
 import numpy as np
 import base64
