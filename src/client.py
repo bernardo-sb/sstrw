@@ -7,7 +7,6 @@ import pyaudio
 import numpy as np
 import uuid
 import webrtcvad
-import threading
 import queue
 from typing import Optional
 import time
