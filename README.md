@@ -114,11 +114,7 @@ Install using uv
 1. PyAudio installation fails:
    - macOS: `brew install portaudio`
 
-2. WebRTC VAD installation:
-   - Ubuntu/Debian: `sudo apt-get install python3-webrtcvad`
-   - Other platforms: May need to install from source
-
-3. Whisper model download:
+2. Whisper model download:
    - The first time you run the server, it will download the Whisper model
    - Ensure you have enough disk space and a stable internet connection
 
