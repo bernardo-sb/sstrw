@@ -66,7 +66,7 @@ class VoiceActivatedClient:
                 try:
                     response = await self.websocket.recv()
                     result = json.loads(response)
-                    print(f"Transcription: {result['text']}")
+                    print(f"Transcription: {result["text"]}")
                 except websockets.exceptions.ConnectionClosed:
                     break
                 except Exception as e:
@@ -96,12 +96,12 @@ class VoiceActivatedClient:
                         frames = [audio_chunk]  # Start collecting frames
                         print("Speech detected, recording...")
 
-                # If we're recording, collect frames
+                # If we"re recording, collect frames
                 elif speech_detected:
                     frames.append(audio_chunk)
                     elapsed_time = time.time() - start_time
 
-                    # Check if we've recorded for 3 seconds
+                    # Check if we"ve recorded for 3 seconds
                     if elapsed_time >= self.RECORD_SECONDS:
                         # Combine all frames
                         audio_data = np.concatenate(frames)
@@ -162,7 +162,7 @@ class VoiceActivatedClient:
 def main():
     load_dotenv()
     client = VoiceActivatedClient(
-        os.environ.get(RATE, 1600),
+        os.environ.get("RATE", 1600),
         os.environ.get("CHUNK_DURATION", 30),
         os.environ.get("CHANNELS", 1),
         os.environ.get("RECORD_SECONDS", 3),

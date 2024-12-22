@@ -80,13 +80,13 @@ class ConnectionManager:
                         # Process the audio chunk with Whisper
                         result = await self.transcribe_audio(audio_buffer)
                         
-                        if result and result.get('text'):
+                        if result and result.get("text"):
                             # Send transcription back to client
                             await self.send_transcription(
                                 client_id,
                                 {
-                                    'text': result['text'].strip(),
-                                    'timestamp': datetime.now().isoformat()
+                                    "text": result["text"].strip(),
+                                    "timestamp": datetime.now().isoformat()
                                 }
                             )
                         
@@ -113,7 +113,7 @@ class ConnectionManager:
                 None,
                 lambda: model.transcribe(
                     audio_data,
-                    language='en',
+                    language="en",
                     fp16=torch.cuda.is_available()
                 )
             )
@@ -139,10 +139,10 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
             data = await websocket.receive_text()
             try:
                 message = json.loads(data)
-                if message['type'] == 'audio':
+                if message["type"] == "audio":
                     # Decode base64 audio data
                     audio_data = np.frombuffer(
-                        base64.b64decode(message['data']),
+                        base64.b64decode(message["data"]),
                         dtype=np.float32
                     )
                     # Add to processing queue
