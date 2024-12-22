@@ -1,0 +1,19 @@
+[project]
+name = "sstrw"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.7, <3.10"
+dependencies = [
+    "fastapi>=0.103.2",
+    "numpy>=1.21.6",
+    "openai-whisper>=20230306",
+    "pyaudio>=0.2.14",
+    "pydantic>=2.5.3",
+    "python-dotenv>=0.21.1",
+    "setuptools>=68.0.0",
+    "torch>=1.13.1",
+    "uvicorn>=0.22.0",
+    "webrtcvad>=2.0.10",
+    "websockets>=11.0.3",
+]
