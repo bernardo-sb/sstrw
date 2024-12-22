@@ -66,7 +66,7 @@ class VoiceActivatedClient:
                 try:
                     response = await self.websocket.recv()
                     result = json.loads(response)
-                    print(f"Transcription: {result["text"]}")
+                    print(f"Transcription: {result['text']}")
                 except websockets.exceptions.ConnectionClosed:
                     break
                 except Exception as e:
@@ -162,10 +162,10 @@ class VoiceActivatedClient:
 def main():
     load_dotenv()
     client = VoiceActivatedClient(
-        os.environ.get("RATE", 1600),
-        os.environ.get("CHUNK_DURATION", 30),
-        os.environ.get("CHANNELS", 1),
-        os.environ.get("RECORD_SECONDS", 3),
+        int(os.environ.get("RATE", 1600)),
+        int(os.environ.get("CHUNK_DURATION", 30)),
+        int(os.environ.get("CHANNELS", 1)),
+        int(os.environ.get("RECORD_SECONDS", 3)),
     )
     asyncio.run(client.run())
 
